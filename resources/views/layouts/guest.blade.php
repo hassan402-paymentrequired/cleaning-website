@@ -15,7 +15,7 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans text-gray-900 antialiased">
+    <body class="font-sans text-gray-900 antialiased" x-data="{ open: false }">
         <header class="absolute inset-x-0 top-0 z-50">
             <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
                 <div class="flex lg:flex-1">
@@ -40,10 +40,12 @@
                     <a href="/service" class="text-sm font-semibold leading-6 text-gray-900">Service</a>
                     <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Contact</a>
                 </div>
+                @guest
                 <div class="hidden lg:flex lg:flex-1 lg:justify-end">
                     <a href="{{ route('login') }}" class="text-sm font-semibold leading-6 text-gray-900">Log in <span
                             aria-hidden="true">&rarr;</span></a>
                 </div>
+                @endguest
             </nav>
             <!-- Mobile menu, show/hide based on menu open state. -->
             <div class="lg:hidden" role="dialog" aria-modal="true" :class="{ 'block': open, 'hidden': !open }">
@@ -53,12 +55,10 @@
                     class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
                     <div class="flex items-center justify-between">
                         <a href="#" class="-m-1.5 p-1.5">
-                            <span class="sr-only">Your Company</span>
-                            <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                            <img class="h-8 w-auto" src="/assets/images/brush.png"
                                 alt="">
                         </a>
                         <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700" @click="open = ! open">
-                            <span class="sr-only">Close menu</span>
                             <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                                 aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -78,9 +78,11 @@
                                     class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Company</a>
                             </div>
                             <div class="py-6">
+                                @guest     
                                 <a href="#"
                                     class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log
                                     in</a>
+                                @endguest
                             </div>
                         </div>
                     </div>
