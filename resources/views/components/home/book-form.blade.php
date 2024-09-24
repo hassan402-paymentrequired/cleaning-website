@@ -1,4 +1,4 @@
-<form class="px-2">
+<form class="px-5 rounded-md ">
     <div class="space-y-10">
       <div class="border-b border-gray-900/10 pb-6">
         <h2 class="text-2xl font-semibold leading-7 text-gray-900">Get In Touch</h2>
@@ -26,6 +26,12 @@
           <div class="sm:col-span-6">
             <div class="mt-2">
               <input id="phone" placeholder="Phone number" name="phone" type="tel" autocomplete="phone" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            </div>
+          </div>
+
+          <div class="sm:col-span-6">
+            <div class="mt-2">
+              <textarea name="message" placeholder="Message" rows="3" autocomplete="message" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset resize-none ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
             </div>
           </div>
   
