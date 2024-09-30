@@ -1,5 +1,7 @@
 <x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
+    <div class="w-full flex items-center justify-center md:justify-evenly min-h-screen">
+    
+    <form method="POST" action="{{ route('register') }}" class="max-w-4xl  w-1/3 ">
         @csrf
 
         <!-- Name -->
@@ -40,7 +42,7 @@
         </div>
 
         <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
+            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md " href="{{ route('login') }}">
                 {{ __('Already registered?') }}
             </a>
 
@@ -49,4 +51,10 @@
             </x-primary-button>
         </div>
     </form>
+
+    <div class="hidden relative z-20  rounded-md  md:flex ">
+        <img src="/assets/images/tools.png" alt="" class="z-100">
+        <img src="/assets/images/b2.png" alt="" class="w-20 absolute rotate-45 top-2 right-3">
+    </div>
+</div>
 </x-guest-layout>

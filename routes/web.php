@@ -19,5 +19,6 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/service', [ServiceController::class, 'index']);
+Route::get('/service/book', [ServiceController::class, 'create']);
 
 require __DIR__.'/auth.php';
