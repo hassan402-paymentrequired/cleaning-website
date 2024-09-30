@@ -98,11 +98,10 @@
                     trained team provides high-quality, eco-friendly solutions tailored to your needs.
                 </p>
                 <div class="mt-10 flex items-center justify-center gap-x-6">
-                    <a href="#"
-                        class="rounded-md bg-green-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600">Get
-                        started</a>
-                    <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Learn more <span
-                            aria-hidden="true">→</span></a>
+                    <a href="/service/book"
+                        class="rounded-md bg-green-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600">Book an order</a>
+                    <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Watch Demo <span
+                            aria-hidden="true">// &rAarr; &spadesuit;</span></a>
                 </div>
             </div>
         </div>

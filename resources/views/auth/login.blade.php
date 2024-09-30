@@ -1,10 +1,10 @@
 <x-guest-layout>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
-<div class="w-full flex items-center justify-center min-h-screen">
-    <form method="POST" action="{{ route('login') }}" class="max-w-4xl w-1/3 mx-auto">
+<div class="w-full flex items-center justify-center md:justify-evenly min-h-screen">
+    <form method="POST" action="{{ route('login') }}" class="max-w-4xl  w-1/3 ">
         @csrf
-
+        <h2 class="text-2xl md:text-4xl font-bold text-gray-800 mb-4">Welcome back!</h2>
         <!-- Email Address -->
         <div>
             <x-input-label for="email" :value="__('Email')" />
@@ -32,17 +32,28 @@
             </label>
         </div>
 
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
+        <div class="flex items-center justify-between mt-4">
+            <a class=" text-sm text-gray-600 hover:text-gray-900 rounded-md" href="{{ route('register') }}">
+                {{ __('Register') }}
+            </a>
+            <div>
+                
+                @if (Route::has('password.request'))
+                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md " href="{{ route('password.request') }}">
                     {{ __('Forgot your password?') }}
                 </a>
-            @endif
-
-            <x-primary-button class="ms-3">
-                {{ __('Log in') }}
-            </x-primary-button>
+                @endif
+                
+                <x-primary-button class="ms-3">
+                    {{ __('Log in') }}
+                </x-primary-button>
+            </div>
         </div>
     </form>
+
+    <div class="hidden relative z-20  rounded-md  md:flex ">
+        <img src="/assets/images/tools.png" alt="" class="z-100">
+        <img src="/assets/images/b2.png" alt="" class="w-20 absolute rotate-45 top-2 right-3">
+    </div>
 </div>
 </x-guest-layout>
