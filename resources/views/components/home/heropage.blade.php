@@ -18,7 +18,7 @@
                 </button>
             </div>
             <div class="hidden lg:flex lg:gap-x-12">
-                <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Home</a>
+                <a href="#" class="text-sm font-semibold leading-6 text-gray-900">tech</a>
                 <a href="#" class="text-sm font-semibold leading-6 text-gray-900">About</a>
                 <a href="/service" class="text-sm font-semibold leading-6 text-gray-900">Service</a>
                 <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Contact</a>
