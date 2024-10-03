@@ -1,5 +1,6 @@
-<form>
-    <div class="space-y-12 w-full max-w-2xl mx-auto">
+<div class="flex p-10 justify-center gap-x-8">
+<form class="w-1/2 border shadow-xl p-5">
+    <div class="space-y-12 ">
         <div class="border-b border-gray-900/10 pb-12">
             <h2 class="text-base sm:text-3xl font-semibold leading-7 text-center text-gray-900">Complete your booking.
             </h2>
@@ -99,29 +100,26 @@
             </div>
 
             <hr />
-            <div class=" py-6">
 
+            {{-- how often will you like us to come --}}
+            <div class=" py-6">
                 <h2 class="text-base font-semibold leading-7 text-gray-900">How often would you like us to come?
                 </h2>
                 <p class="mt-1 text-sm leading-6 text-gray-600">Scheduling is flexible. Cancel or reschedule anytime.
                 </p>
-
-                <div class="mt-10 justify-center  items-center sm:flex-row gap-5 flex ">
-
-                    <div class="p-5 rounded-md flex border">
-                        One Time
-                    </div>
-                    <div class="p-5 bg-orange-600 text-white rounded-md flex items-center justify-center border">
-                        Every week (15% discount)
-                    </div>
-                    <div class="p-5 rounded-md flex items-center justify-center border">
-                        Every 2 weeks (Most popular)
-                    </div>
-
-                    <div class="p-5 rounded-md flex items-center justify-center border">
-                        Every 4 week
-                    </div>
-
+                <div x-data="{ selected: null }" class="mt-10 justify-center items-center sm:flex-row gap-5 flex">
+                    <label :class="{'selected': selected === 'one'}" class="p-5 rounded-md flex border">
+                        <input type="radio" name="subscription" value="one" x-model="selected" class="hidden"> One Time
+                    </label>
+                    <label :class="{'selected': selected === 'weekly'}" class="p-5 text-black rounded-md flex items-center justify-center border">
+                        <input type="radio" name="subscription" value="weekly" x-model="selected" class="hidden"> Every week (15% discount)
+                    </label>
+                    <label :class="{'selected': selected === 'biweekly'}" class="p-5 rounded-md flex items-center justify-center border">
+                        <input type="radio" name="subscription" value="biweekly" x-model="selected" class="hidden"> Every 2 weeks (Most popular)
+                    </label>
+                    <label :class="{'selected': selected === 'monthly'}" class="p-5 rounded-md flex items-center justify-center border">
+                        <input type="radio" name="subscription" value="monthly" x-model="selected" class="hidden"> Every 4 weeks
+                    </label>
                 </div>
 
 
@@ -279,14 +277,16 @@
         {{-- anything to know --}}
         <div>
             <h2 class="text-xl sm:text-2xl">Is there anything else we should know?</h2>
-            <textarea name="anything-else" rows="4" class="w-full mt-3 rounded outline-none focus:outline-none border-gray-500 resize-none text-gray-600"></textarea>
+            <textarea name="anything-else" rows="4"
+                class="w-full mt-3 rounded outline-none focus:outline-none border-gray-500 resize-none text-gray-600"></textarea>
         </div>
         <hr />
 
         {{-- hear about us --}}
         <div>
             <h2 class="text-base sm:text-xl">What is the name of your neighborhood or apartment complex?</h2>
-            <input type="text" name="neigbour" class="w-full text-gray-500 mt-3" placeholder="neighborhood or apartment complex name">
+            <input type="text" name="neigbour" class="w-full text-gray-500 mt-3"
+                placeholder="neighborhood or apartment complex name">
             <select name="hear-us" class="w-full mt-4 focus:border-gray-5">
                 <option value="--">--How do you hear about us--</option>
                 <option value="youtube">Youtube</option>
@@ -297,16 +297,103 @@
         </div>
 
         {{-- where we should pack --}}
-        <div>
-            
+        <div class="w-full">
+            <h2 class="text-base font-semibold leading-7 text-gray-500">Where should we park?</h2>
+
+            <div class="flex flex-col gap-3">
+
+                <div class="flex items-center space-x-5 mt-4 justify-evenly ">
+
+                    <div class="flex flex-col">
+                        <div
+                            class="py-2 px-8 bg-orange-500 text-white  rounded-md flex items-center justify-center border">
+                            <span class="text-5xl text-gray-400"> &#x2609;</span>
+                        </div>
+                        <span class="text-sm text-gray-500">There is street parking</span>
+                    </div>
+
+                    <div class="flex flex-col">
+                        <div class="py-2 px-8  text-white  rounded-md flex items-center justify-center border">
+                            <span class="text-5xl text-gray-400"> &#x2609;</span>
+                        </div>
+                        <span class="text-sm text-gray-500">Park in my Driveway</span>
+                    </div>
+
+                    <div class="flex flex-col">
+                        <div class="py-2 px-8 text-white  rounded-md flex items-center justify-center border">
+                            <span class="text-5xl text-gray-400"> &#x2609;</span>
+                        </div>
+                        <span class="text-sm text-gray-500">Park in my garage</span>
+                    </div>
+
+                    <div class="flex flex-col">
+                        <div class="py-2 px-8 text-white  rounded-md flex items-center justify-center border">
+                            <span class="text-5xl text-gray-400"> &#x2609;</span>
+                        </div>
+                        <span class="text-sm text-gray-500">Other (please explain below)</span>
+                    </div>
+
+                </div>
+                <input type="text" name="others" id="" class="w-full hidden mt-1 text-gray-500"
+                    placeholder="others*">
+            </div>
+
+            {{-- home access  --}}
+            <div class="w-full mt-5">
+                <h2 class="text-base font-semibold leading-7 text-gray-500">Where should we park?</h2>
+
+                <div class="flex flex-col gap-3">
+
+                    <div class="flex items-center space-x-5 mt-4 justify-evenly ">
+                        <div class="flex flex-col">
+                            <div
+                                class="py-2 px-8 bg-orange-500 text-white  rounded-md flex items-center justify-center border">
+                                <span class="text-5xl text-gray-400"> &#x2609;</span>
+                            </div>
+                            <span class="text-sm text-gray-500">I will be home</span>
+                        </div>
+
+                        <div class="flex flex-col">
+                            <div class="py-2 px-8  text-white  rounded-md flex items-center justify-center border">
+                                <span class="text-5xl text-gray-400"> &#x2609;</span>
+                            </div>
+                            <span class="text-sm text-gray-500">
+                                I will leave a key</span>
+                        </div>
+
+                        <div class="flex flex-col">
+                            <div class="py-2 px-8 text-white  rounded-md flex items-center justify-center border">
+                                <span class="text-5xl text-gray-400"> &#x2609;</span>
+                            </div>
+                            <span class="text-sm text-gray-500">I will provide an access code</span>
+                        </div>
+
+                        <div class="flex flex-col">
+                            <div class="py-2 px-8 text-white  rounded-md flex items-center justify-center border">
+                                <span class="text-5xl text-gray-400"> &#x2609;</span>
+                            </div>
+                            <span class="text-sm text-gray-500">Other</span>
+                        </div>
+
+                    </div>
+                    <input type="text" name="others" id="" class="w-full hidden mt-1 text-gray-500"
+                        placeholder="others*">
+                    <textarea name="anything-else" rows="4"
+                        class="w-full mt-3 rounded outline-none focus:outline-none border-gray-500 resize-none text-gray-600"></textarea>
+                </div>
+            </div>
+            <p class="mt-2 text-gray-500">By clicking the Book Now button you are agreeing to our Terms of Service and Privacy Policy.</p>
+            <p class="mt-2 text-gray-500">Don't worry, you won't be billed until the day of service and you will receive an email receipt instantly.</p>
         </div>
+
+        <div class=" w-full">
+            <button type="submit" class=" bg-green-500 text-gray-200 uppercase w-full h-10 flex justify-center items-center">Book now</button>
+           </div>
     </div>
 
-    </div>
-
-    <div class="mt-6 flex items-center justify-end gap-x-6">
-        <button type="button" class="text-sm font-semibold leading-6 text-gray-900">Cancel</button>
-        <button type="submit"
-            class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save</button>
-    </div>
 </form>
+
+
+<x-order.book-side-bar />
+</div>
+
