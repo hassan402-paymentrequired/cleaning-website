@@ -1,32 +1,35 @@
-<div class="flex p-5 justify-center gap-8">
+<div class="flex p-5 justify-center gap-8" x-data="{ bedroom: 0, date: '', hour: 2, many: 1 }">
     <form class="w-1/2 border shadow-xl p-5">
-        <div class="space-y-12 ">
+        <div class="space-y-12">
             <div class="border-b border-gray-900/10 pb-12">
-                <h2 class="text-base sm:text-3xl font-semibold leading-7 text-center text-gray-900">Complete your
-                    booking.
-                </h2>
-                <p class="mt-1 text-sm leading-6 text-gray-600 text-center">Great! Few details and we can complete your
-                    booking.</p>
+                <h2 class="text-base sm:text-3xl font-semibold leading-7 text-center text-gray-900">Complete your booking</h2>
+                <p class="mt-1 text-sm leading-6 text-gray-600 text-center">Great! A few details and we can complete your booking.</p>
                 <hr />
                 <div class="border-b border-gray-900/10 py-12">
                     <h2 class="text-base font-semibold leading-7 text-gray-900">Choose your service</h2>
                     <p class="mt-1 text-sm leading-6 text-gray-600">Tell us about your home.</p>
                     <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                         <div class="sm:col-span-3">
-                            {{-- bedrooms and bathrooms --}}
                             <div class="mt-2">
-                                <select id="country" name="bedroom-count" autocomplete="bed-room"
-                                    class="w-full">
-                                    <option selected>--bedroom--</option>
-                                    <option>1 bedroom</option>
-                                    <option>2 bedrooms</option>
-                                    <option>3 bedrooms</option>
-                                    <option>4 bedrooms</option>
-                                    <option>5 bedrooms</option>
-                                    <option>Home: Hourly service - $35/hr per maid</option>
+                                {{-- <label for="bedroom-count" class="block text-sm font-medium text-gray-700">Number of Bedrooms</label> --}}
+                                <select id="bedroom-count" name="bedroom-count" autocomplete="bed-room" class="w-full" x-model="bedroom">
+                                    <option value="" selected>-- Select Bedrooms --</option>
+                                    <option value="1">1 bedroom</option>
+                                    <option value="2">2 bedrooms</option>
+                                    <option value="3">3 bedrooms</option>
+                                    <option value="4">4 bedrooms</option>
+                                    <option value="5">5 bedrooms</option>
+                                    <option value="hourly">Home: Hourly service - $35/hr per maid</option>
                                 </select>
                             </div>
                         </div>
+                        {{-- <p class="mt-2">Selected Bedroom Value: <span x-text="bedroom"></span></p> --}}
+                    {{-- </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div> --}}
 
                         <div class="sm:col-span-3">
                             <div class="mt-2">
@@ -97,31 +100,24 @@
                         <p class="mt-1 text-sm leading-6 text-gray-600">Scheduling is flexible. Cancel or reschedule
                             anytime.
                         </p>
-                        <div x-data="{ selected: null }" class="mt-10 justify-center items-center sm:flex-row gap-5 flex">
+                        <div x-data="{ selected: null}" class="mt-10 justify-center items-center sm:flex-row gap-5 flex">
                             <label :class="{ 'selected': selected === 'one' }" class="p-5 rounded-md flex border">
-                                <input type="radio" name="subscription" value="one" x-model="selected"
-                                    class="hidden">
+                                <input type="radio" name="subscription" value="one" x-model="selected" @change="$data.many = 'One Time' "  class="hidden">
                                 One Time
                             </label>
-                            <label :class="{ 'selected': selected === 'weekly' }"
-                                class="p-5 text-black rounded-md flex items-center justify-center border">
-                                <input type="radio" name="subscription" value="weekly" x-model="selected"
-                                    class="hidden">
+                            <label :class="{ 'selected': selected === 'weekly' }" class="p-5 text-black rounded-md flex items-center justify-center border">
+                                <input type="radio" name="subscription" value="weekly" x-model="selected" @change="many = 'Every week'" class="hidden">
                                 Every week (15% discount)
                             </label>
-                            <label :class="{ 'selected': selected === 'biweekly' }"
-                                class="p-5 rounded-md flex items-center justify-center border">
-                                <input type="radio" name="subscription" value="biweekly" x-model="selected"
-                                    class="hidden"> Every 2 weeks (Most popular)
+                            <label :class="{ 'selected': selected === 'biweekly' }" class="p-5 rounded-md flex items-center justify-center border">
+                                <input type="radio" name="subscription" value="biweekly" x-model="selected" @change="many = 'Every 2 weeks'" class="hidden">
+                                Every 2 weeks (Most popular)
                             </label>
-                            <label :class="{ 'selected': selected === 'monthly' }"
-                                class="p-5 rounded-md flex items-center justify-center border">
-                                <input type="radio" name="subscription" value="monthly" x-model="selected"
-                                    class="hidden"> Every 4 weeks
+                            <label :class="{ 'selected': selected === 'monthly' }" class="p-5 rounded-md flex items-center justify-center border">
+                                <input type="radio" name="subscription" value="monthly" x-model="selected" @change="many = 'Every 4 weeks'" class="hidden">
+                                Every 4 weeks
                             </label>
                         </div>
-
-
                     </div>
 
                     <hr class=""/>
@@ -222,10 +218,9 @@
                     <h2 class="text-base font-semibold leading-7 text-gray-900">When will you like us to come</h2>
                     <div class="sm:col-span-2">
                         <div class="mt-2">
-                            <input type="date" name="time-to-come" class="w-full">
+                            <input type="date" name="time-to-come" class="w-full" x-model="date">
                         </div>
                     </div>
-
                     <div class="sm:col-span-2">
                         <div class="mt-2">
                             <input type="text" name="available" placeholder="no spot"

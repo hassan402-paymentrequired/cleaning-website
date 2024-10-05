@@ -50,11 +50,11 @@
     <div id="scrolling-div" class="flex flex-col border shadow-lg p-5">
         <div class="flex items-center gap-5">
             <span><i class='bx bx-home text-4xl text-gray-500'></i></span>
-            <span class="text-gray-400 text-lg">2 bedroom apartment</span>
+            <span class="text-gray-400 text-lg"><span x-text="bedroom"></span> bedroom apartment</span>
         </div>
         <div class="flex items-center gap-5">
             <span><i class='bx bxs-calendar text-4xl text-gray-500'></i></span>
-            <span class="text-gray-400 text-lg">Choose service date...</span>
+            <span class="text-gray-400 text-lg">Service date: <span x-text="date"></span></span>
         </div>
         <div class="flex items-center gap-5">
             <span><i class='bx bx-time text-4xl text-gray-500'></i></span>
@@ -62,7 +62,7 @@
         </div>
         <div class="flex items-center gap-5">
             <span><i class='bx bx-repeat text-4xl text-gray-500'></i></span>
-            <span class="text-gray-400 text-lg">one time</span>
+            <span class="text-gray-400 text-lg"> <span x-text="many"></span></span>
         </div>
         <hr>
         <div class="flex items-center justify-between py-5">
