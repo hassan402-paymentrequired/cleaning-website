@@ -1,4 +1,4 @@
-<div class="flex p-5 justify-center gap-8" x-data="{ bedroom: 0, date: '', hour: 2, many: 1 }">
+<div class="flex p-5 justify-center gap-8" x-data="{ bedroom: 0, date: '', hour: 2, many: 'one time' }">
     <form class="w-1/2 border shadow-xl p-5">
         <div class="space-y-12">
             <div class="border-b border-gray-900/10 pb-12">
