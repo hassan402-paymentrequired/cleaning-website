@@ -1,4 +1,4 @@
-<div class="flex p-5 justify-center gap-8" x-data="{ bedroom: 0, date: '', hour: 2, many: 'one time' }">
+<div class="flex p-5 justify-center gap-8" x-data="{ bedroom: '1 bedroom', date: '--:--', hour: '1 hour', many: 'one time' }">
     <form class="w-1/2 border shadow-xl p-5">
         <div class="space-y-12">
             <div class="border-b border-gray-900/10 pb-12">
@@ -12,24 +12,17 @@
                         <div class="sm:col-span-3">
                             <div class="mt-2">
                                 {{-- <label for="bedroom-count" class="block text-sm font-medium text-gray-700">Number of Bedrooms</label> --}}
-                                <select id="bedroom-count" name="bedroom-count" autocomplete="bed-room" class="w-full" x-model="bedroom">
+                                <select id="bedroom-count" name="bedroom-count" autocomplete="bed-room" class="w-full" x-model="bedroom" >
                                     <option value="" selected>-- Select Bedrooms --</option>
-                                    <option value="1">1 bedroom</option>
-                                    <option value="2">2 bedrooms</option>
-                                    <option value="3">3 bedrooms</option>
-                                    <option value="4">4 bedrooms</option>
-                                    <option value="5">5 bedrooms</option>
-                                    <option value="hourly">Home: Hourly service - $35/hr per maid</option>
+                                    <option value="1 bedroom">1 bedroom</option>
+                                    <option value="2 bedrooms">2 bedrooms</option>
+                                    <option value="3 bedrooms">3 bedrooms</option>
+                                    <option value="4 bedrooms">4 bedrooms</option>
+                                    <option value="5 bedrooms">5 bedrooms</option>
+                                    <option value="Home: Hourly service - $35/hr per maid">Home: Hourly service - $35/hr per maid</option>
                                 </select>
                             </div>
                         </div>
-                        {{-- <p class="mt-2">Selected Bedroom Value: <span x-text="bedroom"></span></p> --}}
-                    {{-- </div>
-                </div>
-            </div>
-        </div>
-    </form>
-</div> --}}
 
                         <div class="sm:col-span-3">
                             <div class="mt-2">
@@ -74,16 +67,16 @@
 
                                 <div class=" sm:col-span-3">
                                     <div class="mt-2 mb-4 ">
-                                        <select id="maid-hour" name="maid-hour" autocomplete="maid-hour-name" class="w-full">
+                                        <select id="maid-hour" name="maid-hour" autocomplete="maid-hour-name" class="w-full"  x-model="hour">
                                             <option selected>--hours--</option>
-                                            <option>1 hour</option>
-                                            <option>2 hours</option>
-                                            <option>3 hours</option>
-                                            <option>4 hours</option>
-                                            <option>5 hours</option>
-                                            <option>6 hours</option>
-                                            <option>7 hours</option>
-                                            <option>8 hours</option>
+                                            <option value="1 hour">1 hour</option>
+                                            <option value="2 hours">2 hours</option>
+                                            <option value="3 hours">3 hours</option>
+                                            <option value="4 hours">4 hours</option>
+                                            <option value="5 hours">5 hours</option>
+                                            <option value="6 hours">6 hours</option>
+                                            <option value="7 hours">7 hours</option>
+                                            <option value="8 hours">8 hours</option>
                                         </select>
                                     </div>
                                 </div>
