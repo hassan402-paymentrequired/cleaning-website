@@ -11,3 +11,16 @@ document.addEventListener('alpine:init', () => {
         selected: null,
     }))
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const scrollingDiv = document.getElementById('scrolling-div');
+    const originalOffset = scrollingDiv.offsetTop;
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY >= originalOffset) {
+            scrollingDiv.classList.add('sticky');
+        } else {
+            scrollingDiv.classList.remove('sticky');
+        }
+    });
+});
