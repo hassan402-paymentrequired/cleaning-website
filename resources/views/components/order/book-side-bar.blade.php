@@ -58,7 +58,11 @@
         </div>
         <div class="flex items-center gap-5">
             <span><i class='bx bx-time text-4xl text-gray-500'></i></span>
+<<<<<<< HEAD
             <span class="text-gray-400 text-lg"><span x-text="hour"></span></span>
+=======
+            <span class="text-gray-400 text-lg"><span x-text="hour"></span> hour 50 minutes</span>
+>>>>>>> b7d45939d8c49afb3010505d67badd36ad693fdf
         </div>
         <div class="flex items-center gap-5">
             <span><i class='bx bx-repeat text-4xl text-gray-500'></i></span>
