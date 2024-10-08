@@ -6,7 +6,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>{{ config('app.name', 'Laravel') }}</title>
-
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <script src="//unpkg.com/alpinejs" defer></script>
@@ -15,7 +15,7 @@
         <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
         <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+
     </head>
     <body class="font-sans text-gray-900 antialiased" x-data="{ open: false }">
         <header class="absolute inset-x-0 top-0 z-50">
@@ -80,7 +80,7 @@
                                     class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Company</a>
                             </div>
                             <div class="py-6">
-                                @guest     
+                                @guest
                                 <a href="#"
                                     class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log
                                     in</a>
@@ -96,6 +96,6 @@
                 {{ $slot }}
             </div>
 
-            
+
     </body>
 </html>
