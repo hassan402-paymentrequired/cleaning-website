@@ -48,7 +48,35 @@
                             aria-hidden="true">&rarr;</span></a>
                 </div>
                 @endguest
+                @auth
+                    <div class="" x-data="{ nav: false }">
+                        <div class="px-4 py-1 bg-green-500 rounded ml-2" @click="nav = ! nav">
+
+                                <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
+
+                        </div>
+
+                        <div class="mt-3 space-y-1" x-show="nav">
+                            <x-responsive-nav-link :href="route('profile.edit')">
+                                {{ __('Profile') }}
+                            </x-responsive-nav-link>
+
+                            <!-- Authentication -->
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+
+                                <x-responsive-nav-link :href="route('logout')"
+                                                       onclick="event.preventDefault();
+                                        this.closest('form').submit();">
+                                    {{ __('Log Out') }}
+                                </x-responsive-nav-link>
+                            </form>
+                        </div>
+                    </div>
+
+                @endauth
             </nav>
+
             <!-- Mobile menu, show/hide based on menu open state. -->
             <div class="lg:hidden" role="dialog" aria-modal="true" :class="{ 'block': open, 'hidden': !open }">
                 <!-- Background backdrop, show/hide based on slide-over state. -->
@@ -69,22 +97,44 @@
                     </div>
                     <div class="mt-6 flow-root">
                         <div class="-my-6 divide-y divide-gray-500/10">
-                            <div class="space-y-2 py-6">
-                                <a href="#"
-                                    class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Product</a>
-                                <a href="#"
-                                    class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Features</a>
-                                <a href="#"
-                                    class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Marketplace</a>
-                                <a href="#"
-                                    class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Company</a>
-                            </div>
+{{--                            <div class="space-y-2 py-6">--}}
+{{--                                <a href="#"--}}
+{{--                                    class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Product</a>--}}
+{{--                               </div>--}}
                             <div class="py-6">
                                 @guest
                                 <a href="#"
                                     class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log
                                     in</a>
                                 @endguest
+                                @auth
+                                        <div class="pt-4 pb-1 border-t  border-gray-200">
+                                            <div class="px-4">
+                                                @auth
+                                                    <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
+                                                    <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
+                                                @endauth
+                                            </div>
+
+                                            <div class="mt-3 space-y-1">
+                                                <x-responsive-nav-link :href="route('profile.edit')">
+                                                    {{ __('Profile') }}
+                                                </x-responsive-nav-link>
+
+                                                <!-- Authentication -->
+                                                <form method="POST" action="{{ route('logout') }}">
+                                                    @csrf
+
+                                                    <x-responsive-nav-link :href="route('logout')"
+                                                                           onclick="event.preventDefault();
+                                        this.closest('form').submit();">
+                                                        {{ __('Log Out') }}
+                                                    </x-responsive-nav-link>
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                @endauth
                             </div>
                         </div>
                     </div>
