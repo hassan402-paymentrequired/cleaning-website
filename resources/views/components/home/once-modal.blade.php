@@ -1,5 +1,6 @@
 <div>
 
+
         <!-- Modal Structure -->
         <div class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true" x-show="modal" @keydown.escape.window="modal = false" x-cloak>
             <!-- Background backdrop -->
@@ -18,20 +19,21 @@
                          x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
 
                         {{--modal--}}
-                        <div class="bg-white max-w-md px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                        <form action="/pay" method="post" class="bg-white max-w-md px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                            @csrf
                             <div class="sm:flex ">
                                 <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
                                     <h3 class="text-3xl font-semibold leading-6 text-gray-900" id="modal-title">Book Your Cleaning Session</h3>
                                     <div class="mt-2">
                                         {{-- your order --}}
                                         <div class="w-[90%] p-3 border mt-4 mx-auto">
-                                            <p class="text-2xl font-semibold mb-4">Your Order</p>
+                                            <p class="text-2xl font-semibold mb-2">Your Order</p>
                                             <div class="flex items-center justify-between">
                                                 <div class="flex flex-col gap-3">
-                                                <span class="font-semibold">standard Cleaning</span>
-                                                <span>5 rooms</span>
+                                                <span class="font-semibold" > <span x-text="selected"></span> Cleaning</span>
+                                                <span><span x-text="bedroom + Kitchen + toilets + StudyStore + LivingRooms + outdoor" class="font-semibold text-sm"></span> rooms</span>
                                                 </div>
-                                                <span x-text="total"></span>
+                                                <span x-text="total" class="font-semibold"></span>
                                             </div>
                                         </div>
 
@@ -75,8 +77,8 @@
 
                                             <h2 class="text-xl font-semibold">Delivery information</h2>
 
-                                            <div class="p-3 flex items-center gap-2">
-                                                <span></span>
+                                            <div class="p-3 flex items-center gap-2 border mt-4 mb-4">
+                                                <span>&#9728;</span>
                                                 <p class="text-lg font-semibold text-center">Your cleaner will arrive to clean between 9AM - 2PM.</p>
                                             </div>
 
@@ -100,6 +102,17 @@
                                                 </div>
 
                                                 <div class="form-item flex flex-col">
+                                                    <x-input-label>Cleaning area</x-input-label>
+                                                    <x-text-input type="text" name="location_area" id="location_area" placeholder="location area"/>
+                                                    <div id="location-suggestions"></div>
+                                                    @error("location_area")
+                                                    <x-input-error :message="$location_area" />
+                                                    @enderror
+                                                </div>
+
+                                                <input type="hidden" name="reference" value="{{ Paystack::genTranxRef() }}">
+
+                                                <div class="form-item flex flex-col">
                                                     <x-input-label>Land mark</x-input-label>
                                                     <x-text-input type="text" name="land_mark" placeholder="land mark (optional)"/>
                                                     @error("land_mark")
@@ -111,16 +124,17 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="bg-gray-50 px-4 py-3 sm:flex sm:px-6">
-                            <button type="button" @click="modal = false" class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Pay now</button>
-                        </div>
+                            <div class="bg-gray-50 px-4 py-3 sm:flex sm:px-6">
+                                <button type="submit"  class="mt-3 inline-flex w-full justify-center rounded-md bg-green-500 px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-green-50 ">Pay now</button>
+                            </div>
+                        </form>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
+{{--//@click="modal = false"--}}
 
 
 

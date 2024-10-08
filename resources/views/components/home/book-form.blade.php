@@ -1,4 +1,4 @@
-<div class="w-full bg-green-300 p-10" id="book" x-data="{ modal: false}">
+<div class="w-full bg-green-300 p-10" id="book" x-data="{ modal: false, selected: 'standard'}">
     <h1 class="text-xl  font-bold sm:text-6xl font-['Jost'] text-center mb-10">book your cleaning session.</h1>
 
     <div class="p-10 rounded-md w-full relative max-w-3xl bg-white mx-auto mt-10" x-data="{ bedroom: 0, LivingRooms: 0, toilets: 0, Kitchen: 0, outdoor: 0 , StudyStore: 0, total: 6000}">

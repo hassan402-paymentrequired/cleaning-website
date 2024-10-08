@@ -3,7 +3,7 @@
 <div class="w-full py-10 border-b" >
     <h1 class="text-center font-semibold">{{$title}}</h1>
 
-    <div class="w-full flex items-center justify-center gap-4 mt-5" x-data="{ check: 'flat' }">
+    <div class="w-full sm:flex sm:flex-row flex-col space-y-4 items-center justify-center gap-4 mt-5" x-data="{ check: 'flat' }">
         <label class="border w-56 h-28 flex items-center justify-center rounded-md cursor-pointer " @click="check = 'flat'" :class="{ 'border-green-700 border-[1px] bg-green-200': check === 'flat' }">
 
             <div class="flex flex-col p-5 text-center text-sm ">

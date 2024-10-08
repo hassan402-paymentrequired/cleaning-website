@@ -1,5 +1,10 @@
 <x-guest-layout>
     <div class="w-full  bg-[#EAF9E7] ">
+        @if (session('message'))
+            <div class="alert alert-{{ session('message.type') }}">
+                {{ session('message.msg') }}
+            </div>
+        @endif
         <x-home.heropage />
        <x-home.subSevice />
        <x-home.recommend />
